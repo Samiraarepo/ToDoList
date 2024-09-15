@@ -7,15 +7,23 @@
   --greenbg: #88ab33;
 }
 html {
-  background-color: #000;
+}
+body {
+  background-color: #0d0d0d;
   color: #fff;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-body {
+ul li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #fff;
 }
 #container {
   max-width: 55rem;
   margin: 0 auto;
+  margin-top: 2rem;
 }
 header h1 {
   display: flex;
@@ -40,6 +48,7 @@ h1 .todo {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 4rem;
 }
 .tasks {
   width: 30rem;
@@ -50,27 +59,26 @@ h1 .todo {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 0.6rem 0.5rem;
+  padding: 0.6rem 0;
 }
 .task_done .text_left {
   font-size: 1.4rem;
 }
 .task_done .text_left h3 {
   font-weight: normal;
+  font-size: 2rem;
 }
 .task_done .circle_percent {
   background-color: var(--greenbg);
-  width: 7rem;
-  height: 7rem;
+  width: 9rem;
+  height: 9rem;
   border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
 }
-.task_list {
-  border: 1px solid #ccc;
-}
+
 .next_task {
   padding: 2rem 0 1.5rem;
 }
@@ -94,5 +102,31 @@ h1 .todo {
   padding: 0.1rem 0.5rem;
   cursor: pointer;
 }
-.task_list {
+
+#list_items .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  margin-bottom: 1.5rem;
+}
+.left_task {
+  display: flex;
+  align-items: center;
+}
+input[id="stroke"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.4rem;
+  border-radius: 100%;
+  border: 0;
+  transition: background-color 0.5s ease;
+}
+input[id="stroke"]:focus {
+  background-color: var(--greenbg);
+}
+input[id="stroke"]:focus ~ p.strikethrough {
+  text-decoration: line-through;
+  color: #fff;
 }
