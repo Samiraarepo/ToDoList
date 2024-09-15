@@ -3,9 +3,96 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+:root {
+  --greenbg: #88ab33;
+}
 html {
   background-color: #000;
   color: #fff;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+}
+#container {
+  max-width: 55rem;
+  margin: 0 auto;
+}
+header h1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.icon_tick {
+  padding-top: 0.4rem;
+}
+.icon_tick svg {
+  width: 2rem;
+  height: 2rem;
+  filter: invert(100%) sepia(2%) saturate(7104%) hue-rotate(304deg)
+    brightness(128%) contrast(101%);
+}
+
+h1 .todo {
+  padding-left: 1rem;
+}
+#main_tasks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.tasks {
+  width: 30rem;
+}
+.task_done {
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.6rem 0.5rem;
+}
+.task_done .text_left {
+  font-size: 1.4rem;
+}
+.task_done .text_left h3 {
+  font-weight: normal;
+}
+.task_done .circle_percent {
+  background-color: var(--greenbg);
+  width: 7rem;
+  height: 7rem;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+.task_list {
+  border: 1px solid #ccc;
+}
+.next_task {
+  padding: 2rem 0 1.5rem;
+}
+.next_task form {
+  display: flex;
+  justify-content: space-between;
+}
+.next_task #input_task {
+  width: 90%;
+  border-radius: 0.5rem;
+  padding: 1rem 0.7rem;
+  background-color: #1f2936;
+  border: 0px;
+  color: #fff;
+}
+#add_btn {
+  background-color: var(--greenbg);
+  border: 0;
+  border-radius: 0.5rem;
+  font-size: 2rem;
+  padding: 0.1rem 0.5rem;
+  cursor: pointer;
+}
+.task_list {
 }
