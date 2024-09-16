@@ -5,6 +5,7 @@
 }
 :root {
   --greenbg: #88ab33;
+  --greencheck: #22c55e;
 }
 html {
 }
@@ -76,7 +77,7 @@ h1 .todo {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 .next_task {
@@ -87,19 +88,21 @@ h1 .todo {
   justify-content: space-between;
 }
 .next_task #input_task {
-  width: 90%;
+  width: 89%;
   border-radius: 0.5rem;
   padding: 1rem 0.7rem;
   background-color: #1f2936;
   border: 0px;
   color: #fff;
 }
+#input_task:focus {
+  outline: none;
+}
 #add_btn {
   background-color: var(--greenbg);
   border: 0;
   border-radius: 0.5rem;
-  font-size: 2rem;
-  padding: 0.1rem 0.5rem;
+  padding: 0.1rem 0.3rem;
   cursor: pointer;
 }
 
@@ -111,6 +114,10 @@ h1 .todo {
   border: 1px solid #ccc;
   margin-bottom: 1.5rem;
 }
+.right_icons {
+  display: flex;
+  flex-wrap: nowrap;
+}
 .left_task {
   display: flex;
   align-items: center;
@@ -118,13 +125,14 @@ h1 .todo {
 input[id="stroke"] {
   width: 1.5rem;
   height: 1.5rem;
-  margin-right: 0.4rem;
+  margin-right: 1em;
   border-radius: 100%;
-  border: 0;
+  border: 1px solid var(--greencheck);
+  background-color: transparent;
   transition: background-color 0.5s ease;
 }
 input[id="stroke"]:focus {
-  background-color: var(--greenbg);
+  background-color: var(--greencheck);
 }
 input[id="stroke"]:focus ~ p.strikethrough {
   text-decoration: line-through;
