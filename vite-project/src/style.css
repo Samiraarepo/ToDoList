@@ -117,23 +117,36 @@ h1 .todo {
   display: flex;
   flex-wrap: nowrap;
 }
+.right_icons button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
 .left_task {
   display: flex;
   align-items: center;
 }
-input[id="stroke"] {
+
+.checkbox {
+  display: none; /* Hide default checkbox */
+}
+
+.task-label {
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s;
   width: 1.5rem;
   height: 1.5rem;
   margin-right: 1em;
   border-radius: 100%;
   border: 1px solid var(--greencheck);
-  background-color: transparent;
-  transition: background-color 0.5s ease;
 }
-input[id="stroke"]:focus {
-  background-color: var(--greencheck);
+
+.checkbox:checked + .task-label {
+  background-color: var(--greencheck); /* Green background when checked */
+  color: #fff;
 }
-input[id="stroke"]:focus ~ p.strikethrough {
+.checkbox:checked ~ p.strikethrough {
   text-decoration: line-through;
   color: #fff;
 }
