@@ -16,8 +16,7 @@
       <h1>
         <span class="icon_tick">
 
-          <svg xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
             <path
               d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
           </svg></span>
@@ -35,9 +34,9 @@
         </span>
       </section>
       <section class="tasks next_task">
-        <form action="">
-          <input id="input_task" type="text" placeholder="Write your next task...">
-          <button id="add_btn">
+        <form action="#">
+          <input id="input_task" type="text" placeholder="Write your next task..." required>
+          <button id="add_btn" aria-label="Add Task">
             <svg fill="#0d0d0d" height="32px" width="32px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 455 455" xml:space="preserve" stroke="#ffffff"
               stroke-width="0.00455">
@@ -55,13 +54,14 @@
         <ul id="list_items">
           <li class="item">
             <div class="left_task">
-              <input id="stroke" type="button">
+              <input type="checkbox" id="task1" class="checkbox" />
+              <label for="task1" class="task-label"></label>
               <p class="strikethrough">
                 Build todo app
               </p>
             </div>
             <div class="right_icons">
-              <a href="#">
+              <button aria-label="Edit task">
                 <svg width="32px" height="32px" viewBox="-1.28 -1.28 66.56 66.56" xmlns="http://www.w3.org/2000/svg"
                   stroke-width="3" stroke="#ffffff" fill="none">
                   <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -75,8 +75,8 @@
                     <line x1="44.87" y1="13.04" x2="50.9" y2="19.24"></line>
                   </g>
                 </svg>
-              </a>
-              <a href="#">
+              </button>
+              <button aria-label="Delete Task">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256">
                   <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
                     stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
@@ -89,7 +89,7 @@
                     </g>
                   </g>
                 </svg>
-              </a>
+              </button>
 
 
             </div>
@@ -98,14 +98,15 @@
 
           <li class="item">
             <div class="left_task">
-              <input id="stroke" type="button">
+              <input type="checkbox" id="task2" class="checkbox" />
+              <label for="task2" class="task-label"></label>
 
               <p class="strikethrough">
                 Write an article about building a todo App.
               </p>
             </div>
             <div class="right_icons">
-              <a href="#">
+              <button aria-label="Edit task">
                 <svg width="32px" height="32px" viewBox="-1.28 -1.28 66.56 66.56" xmlns="http://www.w3.org/2000/svg"
                   stroke-width="3" stroke="#ffffff" fill="none">
                   <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -119,8 +120,8 @@
                     <line x1="44.87" y1="13.04" x2="50.9" y2="19.24"></line>
                   </g>
                 </svg>
-              </a>
-              <a href="#">
+              </button>
+              <button aria-label="Delete Task">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256">
                   <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
                     stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
@@ -133,7 +134,7 @@
                     </g>
                   </g>
                 </svg>
-              </a>
+              </button>
 
 
             </div>
@@ -142,13 +143,14 @@
 
           <li class="item">
             <div class="left_task">
-              <input id="stroke" type="button">
+              <input type="checkbox" id="task3" class="checkbox" />
+              <label for="task3" class="task-label"></label>
               <p class="strikethrough">
                 Publish article.
               </p>
             </div>
             <div class="right_icons">
-              <a href="#">
+              <button aria-label="Edit task">
                 <svg width="32px" height="32px" viewBox="-1.28 -1.28 66.56 66.56" xmlns="http://www.w3.org/2000/svg"
                   stroke-width="3" stroke="#ffffff" fill="none">
                   <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -162,8 +164,8 @@
                     <line x1="44.87" y1="13.04" x2="50.9" y2="19.24"></line>
                   </g>
                 </svg>
-              </a>
-              <a href="#">
+              </button>
+              <button aria-label="Delete task">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256">
                   <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
                     stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
@@ -176,7 +178,7 @@
                     </g>
                   </g>
                 </svg>
-              </a>
+              </button>
 
 
             </div>
