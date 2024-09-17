@@ -1,96 +1,140 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+* {
+  padding: 0;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  box-sizing: border-box;
 }
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+:root {
+  --greenbg: #88ab33;
+  --greencheck: #22c55e;
 }
-
-#app {
-  max-width: 1280px;
+html {
+}
+body {
+  background-color: #0d0d0d;
+  color: #fff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+ul li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+#container {
+  max-width: 55rem;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  margin-top: 2rem;
+}
+header h1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.icon_tick {
+  padding-top: 0.4rem;
+}
+.icon_tick svg {
+  width: 2rem;
+  height: 2rem;
+  filter: invert(100%) sepia(2%) saturate(7104%) hue-rotate(304deg)
+    brightness(128%) contrast(101%);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+h1 .todo {
+  padding-left: 1rem;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+#main_tasks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
 }
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
+.tasks {
+  width: 30rem;
+}
+.task_done {
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.6rem 0;
+}
+.task_done .text_left {
+  font-size: 1.4rem;
+}
+.task_done .text_left h3 {
+  font-weight: normal;
+  font-size: 2rem;
+}
+.task_done .circle_percent {
+  background-color: var(--greenbg);
+  width: 9rem;
+  height: 9rem;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
 }
 
-.card {
-  padding: 2em;
+.next_task {
+  padding: 2rem 0 1.5rem;
 }
-
-.read-the-docs {
-  color: #888;
+.next_task form {
+  display: flex;
+  justify-content: space-between;
 }
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.next_task #input_task {
+  width: 89%;
+  border-radius: 0.5rem;
+  padding: 1rem 0.7rem;
+  background-color: #1f2936;
+  border: 0px;
+  color: #fff;
+}
+#input_task:focus {
+  outline: none;
+}
+#add_btn {
+  background-color: var(--greenbg);
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 0.1rem 0.3rem;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+#list_items .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  margin-bottom: 1.5rem;
+}
+.right_icons {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.left_task {
+  display: flex;
+  align-items: center;
+}
+input[id="stroke"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1em;
+  border-radius: 100%;
+  border: 1px solid var(--greencheck);
+  background-color: transparent;
+  transition: background-color 0.5s ease;
+}
+input[id="stroke"]:focus {
+  background-color: var(--greencheck);
+}
+input[id="stroke"]:focus ~ p.strikethrough {
+  text-decoration: line-through;
+  color: #fff;
 }

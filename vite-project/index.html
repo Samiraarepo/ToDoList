@@ -1,13 +1,193 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToDo App (Vite + TS)</title>
+
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+        <span class="icon_tick">
+
+          <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path
+              d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
+          </svg></span>
+        <span class="todo"> TODO</span>
+      </h1>
+    </header>
+    <main id="main_tasks">
+      <section class="tasks task_done">
+        <span class="text_left">
+          <h3>Task Done</h3>
+          Keep it up
+        </span>
+        <span class="circle_percent">
+          1/3
+        </span>
+      </section>
+      <section class="tasks next_task">
+        <form action="">
+          <input id="input_task" type="text" placeholder="Write your next task...">
+          <button id="add_btn">
+            <svg fill="#0d0d0d" height="32px" width="32px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 455 455" xml:space="preserve" stroke="#ffffff"
+              stroke-width="0.00455">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <polygon
+                  points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                </polygon>
+              </g>
+            </svg>
+        </form>
+      </section>
+      <section class="tasks task_list">
+        <ul id="list_items">
+          <li class="item">
+            <div class="left_task">
+              <input id="stroke" type="button">
+              <p class="strikethrough">
+                Build todo app
+              </p>
+            </div>
+            <div class="right_icons">
+              <a href="#">
+                <svg width="32px" height="32px" viewBox="-1.28 -1.28 66.56 66.56" xmlns="http://www.w3.org/2000/svg"
+                  stroke-width="3" stroke="#ffffff" fill="none">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path d="M55.5,23.9V53.5a2,2,0,0,1-2,2h-43a2,2,0,0,1-2-2v-43a2,2,0,0,1,2-2H41.64">
+                    </path>
+                    <path
+                      d="M19.48,38.77l-.64,5.59a.84.84,0,0,0,.92.93l5.56-.64a.87.87,0,0,0,.5-.24L54.9,15.22a1.66,1.66,0,0,0,0-2.35L51.15,9.1a1.67,1.67,0,0,0-2.36,0L19.71,38.28A.83.83,0,0,0,19.48,38.77Z">
+                    </path>
+                    <line x1="44.87" y1="13.04" x2="50.9" y2="19.24"></line>
+                  </g>
+                </svg>
+              </a>
+              <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256">
+                  <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                    font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                    style="mix-blend-mode: normal">
+                    <g transform="scale(10.66667,10.66667)">
+                      <path
+                        d="M10,2l-1,1h-5v2h1v15c0,0.52222 0.19133,1.05461 0.56836,1.43164c0.37703,0.37703 0.90942,0.56836 1.43164,0.56836h10c0.52222,0 1.05461,-0.19133 1.43164,-0.56836c0.37703,-0.37703 0.56836,-0.90942 0.56836,-1.43164v-15h1v-2h-5l-1,-1zM7,5h10v15h-10zM9,7v11h2v-11zM13,7v11h2v-11z">
+                      </path>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+
+
+            </div>
+          </li>
+
+
+          <li class="item">
+            <div class="left_task">
+              <input id="stroke" type="button">
+
+              <p class="strikethrough">
+                Write an article about building a todo App.
+              </p>
+            </div>
+            <div class="right_icons">
+              <a href="#">
+                <svg width="32px" height="32px" viewBox="-1.28 -1.28 66.56 66.56" xmlns="http://www.w3.org/2000/svg"
+                  stroke-width="3" stroke="#ffffff" fill="none">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path d="M55.5,23.9V53.5a2,2,0,0,1-2,2h-43a2,2,0,0,1-2-2v-43a2,2,0,0,1,2-2H41.64">
+                    </path>
+                    <path
+                      d="M19.48,38.77l-.64,5.59a.84.84,0,0,0,.92.93l5.56-.64a.87.87,0,0,0,.5-.24L54.9,15.22a1.66,1.66,0,0,0,0-2.35L51.15,9.1a1.67,1.67,0,0,0-2.36,0L19.71,38.28A.83.83,0,0,0,19.48,38.77Z">
+                    </path>
+                    <line x1="44.87" y1="13.04" x2="50.9" y2="19.24"></line>
+                  </g>
+                </svg>
+              </a>
+              <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256">
+                  <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                    font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                    style="mix-blend-mode: normal">
+                    <g transform="scale(10.66667,10.66667)">
+                      <path
+                        d="M10,2l-1,1h-5v2h1v15c0,0.52222 0.19133,1.05461 0.56836,1.43164c0.37703,0.37703 0.90942,0.56836 1.43164,0.56836h10c0.52222,0 1.05461,-0.19133 1.43164,-0.56836c0.37703,-0.37703 0.56836,-0.90942 0.56836,-1.43164v-15h1v-2h-5l-1,-1zM7,5h10v15h-10zM9,7v11h2v-11zM13,7v11h2v-11z">
+                      </path>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+
+
+            </div>
+          </li>
+
+
+          <li class="item">
+            <div class="left_task">
+              <input id="stroke" type="button">
+              <p class="strikethrough">
+                Publish article.
+              </p>
+            </div>
+            <div class="right_icons">
+              <a href="#">
+                <svg width="32px" height="32px" viewBox="-1.28 -1.28 66.56 66.56" xmlns="http://www.w3.org/2000/svg"
+                  stroke-width="3" stroke="#ffffff" fill="none">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path d="M55.5,23.9V53.5a2,2,0,0,1-2,2h-43a2,2,0,0,1-2-2v-43a2,2,0,0,1,2-2H41.64">
+                    </path>
+                    <path
+                      d="M19.48,38.77l-.64,5.59a.84.84,0,0,0,.92.93l5.56-.64a.87.87,0,0,0,.5-.24L54.9,15.22a1.66,1.66,0,0,0,0-2.35L51.15,9.1a1.67,1.67,0,0,0-2.36,0L19.71,38.28A.83.83,0,0,0,19.48,38.77Z">
+                    </path>
+                    <line x1="44.87" y1="13.04" x2="50.9" y2="19.24"></line>
+                  </g>
+                </svg>
+              </a>
+              <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256">
+                  <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                    font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                    style="mix-blend-mode: normal">
+                    <g transform="scale(10.66667,10.66667)">
+                      <path
+                        d="M10,2l-1,1h-5v2h1v15c0,0.52222 0.19133,1.05461 0.56836,1.43164c0.37703,0.37703 0.90942,0.56836 1.43164,0.56836h10c0.52222,0 1.05461,-0.19133 1.43164,-0.56836c0.37703,-0.37703 0.56836,-0.90942 0.56836,-1.43164v-15h1v-2h-5l-1,-1zM7,5h10v15h-10zM9,7v11h2v-11zM13,7v11h2v-11z">
+                      </path>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+
+
+            </div>
+          </li>
+        </ul>
+
+      </section>
+
+    </main>
+  </div>
+
+</body>
+
 </html>
