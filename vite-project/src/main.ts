@@ -1,24 +1,19 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+interface Task {
+  id: number;
+  text: string;
+  completed: boolean;
+}
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+class TodoList {
+  private Tasks: Task[] = [];
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+  //Add Task to todolist
+  addTask(todo: Task) {
+    this.Tasks.push(todo);
+  }
+
+  removeTask(id: number) {
+    this.Tasks = this.Tasks.filter((todo) => todo.id !== id);
+  }
+  //Remove Task by id
+}
