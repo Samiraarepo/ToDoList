@@ -23,7 +23,7 @@ a {
 #container {
   max-width: 55rem;
   margin: 0 auto;
-  margin-top: 2rem;
+  padding-top: 2rem;
 }
 header h1 {
   display: flex;
@@ -49,6 +49,7 @@ h1 .todo {
   justify-content: center;
   align-items: center;
   margin-top: 4rem;
+  height: auto;
 }
 .tasks {
   width: 30rem;

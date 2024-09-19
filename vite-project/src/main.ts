@@ -21,13 +21,14 @@ class TodoList {
     return this.Tasks;
   }
 }
+
 class TodoListUI {
   private todoList: TodoList;
 
   constructor(todoList: TodoList) {
     this.todoList = todoList;
   }
-  displayTask() {
+  displayTasks() {
     const todoListElement = document.getElementById("list_items")!;
     todoListElement.innerHTML = "";
 
@@ -79,4 +80,35 @@ class TodoListUI {
       todoListElement.appendChild(todoElement);
     });
   }
+  // this method adds a new task to the todoList object and updates the user interface to display the new task.
+  addTodo() {
+    const newTodoInput = document.getElementById(
+      "input_task"
+    ) as HTMLInputElement;
+    const newTodoText = newTodoInput.value.trim();
+
+    if (newTodoText) {
+      const newTodo: Task = {
+        id: Date.now(),
+        text: newTodoText,
+        completed: false,
+      };
+
+      this.todoList.addTask(newTodo);
+      this.displayTasks();
+      newTodoInput.value = "";
+    }
+  }
+
+  addEvent() {
+    document
+      .getElementById("add_btn")!
+      .addEventListener("click", () => this.addTodo());
+  }
 }
+
+const todoList = new TodoList();
+const ui = new TodoListUI(todoList);
+
+ui.displayTasks();
+ui.addEvent();
