@@ -47,7 +47,7 @@ class TodoListUI {
             <div class="right_icons">
               <button aria-label="Edit task">
                 <svg width="32px" height="32px" viewBox="-1.28 -1.28 66.56 66.56" xmlns="http://www.w3.org/2000/svg"
-                  stroke-width="3" stroke="#ffffff" fill="none">
+                  stroke-width="3" stroke="#c2b39a" fill="none">
                   <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                   <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                   <g id="SVGRepo_iconCarrier">
@@ -62,7 +62,7 @@ class TodoListUI {
               </button>
               <button aria-label="Delete Task" data-id="${todo.id}">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256">
-                  <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                  <g fill="#c2b39a" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
                     stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
                     font-family="none" font-weight="none" font-size="none" text-anchor="none"
                     style="mix-blend-mode: normal">

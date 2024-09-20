@@ -6,8 +6,10 @@
 :root {
   --greenbg: #88ab33;
   --greencheck: #22c55e;
+  --bordercolor: #c2b39a;
 }
 
+html,
 body {
   background-color: #0d0d0d;
   color: #fff;
@@ -55,7 +57,7 @@ h1 .todo {
   width: 30rem;
 }
 .task_done {
-  border: 1px solid #ccc;
+  border: 1px solid var(--bordercolor);
   border-radius: 0.5rem;
   display: flex;
   align-items: center;
@@ -111,7 +113,7 @@ h1 .todo {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--bordercolor);
   margin-bottom: 1.5rem;
 }
 .right_icons {
