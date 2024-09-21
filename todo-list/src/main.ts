@@ -12,6 +12,7 @@ class TodoList {
     this.Tasks.push(todo);
   }
   editTask() {}
+
   //Remove Task by id
   removeTask(id: number) {
     this.Tasks = this.Tasks.filter((todo) => todo.id !== id);
@@ -34,6 +35,7 @@ class TodoListUI {
 
     this.todoList.getTask().forEach((todo) => {
       const todoElement = document.createElement("li");
+
       todoElement.classList.add("item");
       todoElement.innerHTML = `<div class="left_task">
               <input type="checkbox" ${
@@ -60,7 +62,8 @@ class TodoListUI {
                   </g>
                 </svg>
               </button>
-              <button aria-label="Delete Task" data-id="${todo.id}">
+              <button 
+              class="remove-todo" data-id="${todo.id} ">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256">
                   <g fill="#c2b39a" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
                     stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
@@ -77,6 +80,13 @@ class TodoListUI {
 
 
             </div>`;
+
+      // Attach the remove event listener to the remove button
+      const removeBtn = todoElement.querySelector(".remove-todo")!;
+      removeBtn.addEventListener("click", () => {
+        const id = parseInt(removeBtn.getAttribute("data-id")!);
+        this.removeTodoById(id);
+      });
       todoListElement.appendChild(todoElement);
     });
   }
@@ -99,11 +109,26 @@ class TodoListUI {
       newTodoInput.value = "";
     }
   }
+  //remove a task with id
+  removeTodoById(id: number) {
+    this.todoList.removeTask(id);
+    this.displayTasks();
+  }
 
+  //event listeners to the HTML elements in the user interface to respond to user interactions.
   addEvent() {
     document
       .getElementById("add_btn")!
       .addEventListener("click", () => this.addTodo());
+
+    // document.addEventListener("click", (event) => {
+    //   const target = event.target as HTMLElement;
+
+    //   if (target.matches(".remove-todo")) {
+    //     const id = parseInt(target.getAttribute("data-id")!);
+    //     this.removeTodoById(id);
+    //   }
+    // });
   }
 }
 
