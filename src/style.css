@@ -125,6 +125,7 @@ h1 .todo {
   border: 0;
   cursor: pointer;
 }
+
 .left_task {
   display: flex;
   align-items: center;
