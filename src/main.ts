@@ -35,8 +35,32 @@ class TodoListUI {
 
   constructor(todoList: TodoList) {
     this.todoList = todoList;
+    this.initEventListeners();
   }
 
+  // Initialize event listeners for UI interactions
+  private initEventListeners() {
+    // Event listener for the "Add" button
+    document
+      .querySelector("#add_btn")!
+      .addEventListener("click", () => this.addTodo());
+  }
+
+  // Updates the total number of tasks
+  updateTaskCount() {
+    const allTasks = document.querySelector("#all_tasks")!;
+    const taskArr = this.todoList.getTask();
+    allTasks.textContent = taskArr.length.toString();
+  }
+
+  updateCompletedCount() {
+    // Filter tasks that are completed
+    const doneTasks = document.querySelector("#done_tasks")!;
+    const taskArr = this.todoList.getTask();
+    const completedTasks = taskArr.filter((task) => task.completed === true);
+
+    doneTasks.textContent = completedTasks.length.toString();
+  }
   displayTasks() {
     const todoListElement = document.querySelector("#list_items")!;
     todoListElement.innerHTML = "";
@@ -48,8 +72,8 @@ class TodoListUI {
       todoElement.innerHTML = `<div class="left_task">
               <input type="checkbox" ${
                 todo.completed ? "checked" : ""
-              } id="task-content" class="checkbox" />
-              <label for="task-content" class="task-label"></label>
+              } id="task-content-${todo.id}" class="checkbox" />
+              <label for="task-content-${todo.id}" class="task-label"></label>
               <p class="strikethrough">
                ${todo.text}
               </p>
@@ -78,7 +102,7 @@ class TodoListUI {
         this.editTodoById(id);
       });
 
-      // Attach an event listener for the checkbox change
+      // Attach an event listener for the checkbox change **********
       const checkBox = todoElement.querySelector(
         ".checkbox"
       )! as HTMLInputElement;
@@ -89,31 +113,12 @@ class TodoListUI {
 
       todoListElement.appendChild(todoElement);
     });
+
     // Update the counts initially
     this.updateTaskCount();
     this.updateCompletedCount();
-
-    // Event listeners to the HTML elements in the UI to respond to user interactions.
-    document
-      .querySelector("#add_btn")!
-      .addEventListener("click", () => this.addTodo());
   }
 
-  // Updates the total number of tasks
-  updateTaskCount() {
-    const allTasks = document.querySelector("#all_tasks")!;
-    const taskArr = this.todoList.getTask();
-    allTasks.textContent = taskArr.length.toString();
-  }
-
-  updateCompletedCount() {
-    // Filter tasks that are completed
-    const doneTasks = document.querySelector("#done_tasks")!;
-    const taskArr = this.todoList.getTask();
-    const completedTasks = taskArr.filter((task) => task.completed);
-
-    doneTasks.textContent = completedTasks.length.toString();
-  }
   // This method adds a new task to the todoList object and updates the user interface to display the new task.
   addTodo() {
     const newTodoInput = document.querySelector(
