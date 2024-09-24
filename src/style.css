@@ -150,7 +150,7 @@ h1 .todo {
   background-color: var(--greencheck); /* Green background when checked */
   color: #fff;
 }
-.checkbox:checked ~ p.strikethrough {
+.checkbox:checked + .task-label + p.strikethrough {
   text-decoration: line-through;
   color: #fff;
 }
