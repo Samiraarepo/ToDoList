@@ -4,11 +4,6 @@ interface Task {
   completed: boolean;
 }
 
-let tasks: Task[] = [
-  { id: 1, text: "Learn TypeScript", completed: false },
-  { id: 2, text: "Build a to-do list", completed: false },
-];
-
 class TodoList {
   private Tasks: Task[] = [];
 
@@ -16,6 +11,7 @@ class TodoList {
   addTask(todo: Task) {
     this.Tasks.push(todo);
   }
+
   editTask(id: number, newText: string) {
     const editTask = this.Tasks.find((todo) => todo.id === id);
     if (editTask) {
@@ -27,6 +23,7 @@ class TodoList {
   removeTask(id: number) {
     this.Tasks = this.Tasks.filter((todo) => todo.id !== id);
   }
+
   // returns the Tasks array.
   getTask() {
     return this.Tasks;
@@ -39,6 +36,7 @@ class TodoListUI {
   constructor(todoList: TodoList) {
     this.todoList = todoList;
   }
+
   displayTasks() {
     const todoListElement = document.querySelector("#list_items")!;
     todoListElement.innerHTML = "";
@@ -56,9 +54,9 @@ class TodoListUI {
                ${todo.text}
               </p>
             </div>
-            <div class="right_icons" data-id="${todo.id}">
+            <div class="right_icons">
               <button 
-              class="edit-todo" >
+              class="edit-todo" data-id="${todo.id}">
                 <img src="../public/assets/edit-icon.svg" alt="Edit Icon">
               </button>
               <button
@@ -80,15 +78,42 @@ class TodoListUI {
         this.editTodoById(id);
       });
 
+      // Attach an event listener for the checkbox change
+      const checkBox = todoElement.querySelector(
+        ".checkbox"
+      )! as HTMLInputElement;
+      checkBox.addEventListener("change", () => {
+        todo.completed = checkBox.checked;
+        this.updateCompletedCount();
+      });
+
       todoListElement.appendChild(todoElement);
     });
+    // Update the counts initially
+    this.updateTaskCount();
+    this.updateCompletedCount();
 
-    // Event listeners to the HTML elements in the user interface to respond to user interactions.
+    // Event listeners to the HTML elements in the UI to respond to user interactions.
     document
       .querySelector("#add_btn")!
       .addEventListener("click", () => this.addTodo());
   }
 
+  // Updates the total number of tasks
+  updateTaskCount() {
+    const allTasks = document.querySelector("#all_tasks")!;
+    const taskArr = this.todoList.getTask();
+    allTasks.textContent = taskArr.length.toString();
+  }
+
+  updateCompletedCount() {
+    // Filter tasks that are completed
+    const doneTasks = document.querySelector("#done_tasks")!;
+    const taskArr = this.todoList.getTask();
+    const completedTasks = taskArr.filter((task) => task.completed);
+
+    doneTasks.textContent = completedTasks.length.toString();
+  }
   // This method adds a new task to the todoList object and updates the user interface to display the new task.
   addTodo() {
     const newTodoInput = document.querySelector(
@@ -108,34 +133,22 @@ class TodoListUI {
       newTodoInput.value = "";
     }
   }
+
   // remove a task with id
   removeTodoById(id: number) {
     this.todoList.removeTask(id);
     this.displayTasks();
   }
-  editTodoById(id: number) {
-    const newTextTask = prompt("Edit your task:");
 
+  editTodoById(id: number) {
+    // Prompt the user to enter the new task text (can change this to any input mechanism)
+    const newTextTask = prompt("Edit your task:");
+    // If the user enters new text, update the task
     if (newTextTask) {
       this.todoList.editTask(id, newTextTask);
-      this.displayTasks;
+      this.displayTasks(); // Re-render the tasks to show the updated task
     }
   }
-  // Event listeners to the HTML elements in the user interface to respond to user interactions.
-  // addEvent() {
-  //   document
-  //     .querySelector("#add_btn")!
-  //     .addEventListener("click", () => this.addTodo());
-
-  // document.addEventListener("click", (event) => {
-  //   const target = event.target as HTMLElement;
-
-  //   if (target.matches(".remove-todo")) {
-  //     const id = parseInt(target.getAttribute("data-id")!);
-  //     this.removeTodoById(id);
-  //   }
-  // });
-  // }
 }
 
 const todoList = new TodoList();
